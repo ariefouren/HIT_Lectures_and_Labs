@@ -9,6 +9,7 @@ class Rectangle
 {
 public:
 	Rectangle(const Point& p1, const Point& p2);
+	Rectangle();
 	~Rectangle();
 
 private:

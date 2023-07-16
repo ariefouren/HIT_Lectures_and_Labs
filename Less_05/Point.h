@@ -6,9 +6,9 @@
 class Point
 {
 public:
-	Point(double x = 0, double y = 0);
+	Point(double x, double y);
 	~Point();
-	void print();
+	void print() const;
 
 private:
 	double x;

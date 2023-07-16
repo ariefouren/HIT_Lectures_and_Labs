@@ -22,7 +22,7 @@ Point::~Point()
 	cout << endl;
 }
 
-void Point::print()
+void Point::print() const
 {
 	cout << "(" << x << ", " << y << ")";
 }
