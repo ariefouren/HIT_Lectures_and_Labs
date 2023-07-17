@@ -10,9 +10,11 @@ using namespace std;
 int main()
 {
 	Point* p1 = new Point(0, 0);
-	Point* p2 = new Point(*p1); // default copy constructor
+	Point* p2 = new Point(*p1);  // default copy constructor
 	Point* p3 = p1;
 
+
+	
 	cout << "point (*p1): ";
 	p1->print();
 	cout << "point (*p2): ";
@@ -34,6 +36,8 @@ int main()
 
 	delete p1;
 	delete p2;
-	// delete p3; // runtime ERROR !
+	// delete p3;	// runtime ERROR ! delete is performed twice on the same
+					// memory location
+	
 
 }

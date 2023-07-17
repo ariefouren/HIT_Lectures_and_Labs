@@ -9,6 +9,7 @@ using namespace std;
 class Counter
 {
 	friend void setCounter(Counter& counter, int value);
+	friend int main();
 
 public:
 	void print() const;
@@ -35,6 +36,6 @@ int main()
 	setCounter(count1, 100);
 	count1.print();
 
-	// count1.c = 0;		// ERROR ! variable count.c is private, 
+	count1.c = 0;		// ERROR ! variable count.c is private, 
 						// and therefore is inaccessible from main()
 }

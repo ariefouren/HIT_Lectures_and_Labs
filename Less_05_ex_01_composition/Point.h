@@ -6,12 +6,12 @@
 class Point
 {
 public:
-	Point(double x=0, double y=0);
+	Point(double x = 0, double y = 0);
 	~Point();
-	void setXY(double x, double y);
 	void print() const;
 
 private:
 	double x;
 	double y;
 };
+
