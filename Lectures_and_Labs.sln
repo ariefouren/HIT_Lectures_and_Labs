@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_05_ex_02_friend_functi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_05_ex_03_friend_classes", "Less_05_ex_03_friend_classes\Less_05_ex_2_friend_classes.vcxproj", "{9238B92C-D07A-4786-891D-C6E2C533572E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_06_ex_01_dynamic_mem", "Less_06_ex_01_dynamic_mem\Less_06_ex_01_dynamic_mem.vcxproj", "{25872549-A2BF-4E18-96FB-FAB233A8FFEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{9238B92C-D07A-4786-891D-C6E2C533572E}.Release|x64.Build.0 = Release|x64
 		{9238B92C-D07A-4786-891D-C6E2C533572E}.Release|x86.ActiveCfg = Release|Win32
 		{9238B92C-D07A-4786-891D-C6E2C533572E}.Release|x86.Build.0 = Release|Win32
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Debug|x64.ActiveCfg = Debug|x64
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Debug|x64.Build.0 = Debug|x64
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Debug|x86.ActiveCfg = Debug|Win32
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Debug|x86.Build.0 = Debug|Win32
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Release|x64.ActiveCfg = Release|x64
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Release|x64.Build.0 = Release|x64
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Release|x86.ActiveCfg = Release|Win32
+		{25872549-A2BF-4E18-96FB-FAB233A8FFEF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
