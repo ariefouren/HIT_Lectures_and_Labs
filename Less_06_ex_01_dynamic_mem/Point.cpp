@@ -7,7 +7,7 @@
 #include "Point.h"		
 using namespace std;
 
-int Point::numPointsCreated ;	// initialize static member variable
+int Point::numPointsCreated = 0;	// initialize static member variable
 
 Point::Point(double x, double y):
 	x(x), y(y), pointId(++numPointsCreated)
