@@ -9,10 +9,11 @@ using namespace std;
 
 int main()
 {
+	cout << "number of points created: " << Point::getNumPointsCreated() << endl;
 	cout << "statically allocated array: Point array1[2]\n";
 	Point array1[2];	// a default constructor Point()
 						// is called for each element of array1[]
-
+	
 	cout << "\ndynamically allocated array: Point* array2 = new Point[3]\n";
 	Point* array2 = new Point[3];	// a default constructor Point()
 									// is called for each element of 
@@ -42,5 +43,6 @@ int main()
 	cout << "\nrelease dynamically allocated array of pointers:  delete[] array3:\n";
 	delete[] array3;
 
+	cout << "number of points created: " << Point::getNumPointsCreated() << endl;
 	cout << "\nend of main()\n";
 }

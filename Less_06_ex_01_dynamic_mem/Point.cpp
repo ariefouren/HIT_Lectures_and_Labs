@@ -34,3 +34,8 @@ void Point::print() const
 {
 	cout << "point #" << pointId << " (" << x << ", " << y << ")";
 }
+
+int Point::getNumPointsCreated()
+{
+	return numPointsCreated;
+}

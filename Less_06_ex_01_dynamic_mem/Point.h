@@ -10,6 +10,7 @@ public:
 	~Point();
 	void setXY(double x, double y);
 	void print() const;
+	static int getNumPointsCreated();
 
 private:
 	double x;
