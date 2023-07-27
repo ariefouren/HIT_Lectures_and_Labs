@@ -1,7 +1,7 @@
 //
 // Complex.cpp
-// implementation of the class for complex numbers
-// operators' overloading
+// implementation of the class of complex numbers
+// with operators' overloading
 //
 #include <iostream>
 #include "Complex.h"
@@ -12,7 +12,7 @@ Complex::Complex(double re, double imaginary)
 
 // Overloading + operator for Complex + Complex
 Complex Complex::operator+(const Complex& other) const {
-    return Complex(real + other.real, imaginary + other.imaginary);
+    return Complex(this->real + other.real, this->imaginary + other.imaginary);
 }
 
 // Overloading - operator for Complex - Complex
@@ -97,6 +97,12 @@ Complex operator/(const double& realNum, const Complex& complex) {
     return Complex(realPart, imagPart);
 }
 
+// Prefix ++ operator affecting the real part only
+Complex& Complex::operator++() {
+    ++real;
+    return *this;
+}
+
 // Postfix ++ operator affecting the real part only
 Complex Complex::operator++(int) {
     Complex temp(*this);
@@ -104,11 +110,7 @@ Complex Complex::operator++(int) {
     return temp;
 }
 
-// Prefix ++ operator affecting the real part only
-Complex& Complex::operator++() {
-    ++real;
-    return *this;
-}
+
 
 // Postfix -- operator affecting the real part only (friend function)
 Complex operator--(Complex& complex, int) {
@@ -122,18 +124,14 @@ Complex& operator--(Complex& complex) {
     --complex.real;
     return complex;
 }
-
-
-
-
 // Overloading << operator for printing complex numbers
-std::ostream& operator<<(std::ostream& os, const Complex& complex) {
+ostream& operator<<(ostream& os, const Complex& complex) {
     os << "(" << complex.getReal();
     if (complex.getImaginary() >= 0)
         os << " + ";
     else
         os << " - ";
-    os << std::abs(complex.getImaginary()) << "i"<<")";
+    os << abs(complex.getImaginary()) << "i"<<")";
     return os;
 }
 

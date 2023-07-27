@@ -1,3 +1,8 @@
+//
+// Complex.cpp
+// definition of the class of complex numbers
+// with operators' overloading
+//
 #pragma once
 #include <iostream>
 using namespace std;

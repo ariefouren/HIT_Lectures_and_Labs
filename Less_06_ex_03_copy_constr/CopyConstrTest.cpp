@@ -52,9 +52,9 @@ int main()
 						// for the returned value
 	cout << "------------------------------\n\n";
 
-	MyClass obj3 = obj1; // COPY constructor 
+	MyClass obj3(obj1); // COPY constructor 
 
 	MyClass obj4;		// default constructor is used for obj4
-	obj4 = obj1;		// copy assignment operator
+	obj4 = obj3;		// copy assignment operator, NOT copy constructor !
 	obj4.print();
 }

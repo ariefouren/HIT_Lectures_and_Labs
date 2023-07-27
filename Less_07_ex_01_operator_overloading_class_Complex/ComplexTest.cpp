@@ -1,6 +1,7 @@
 //
-// CopyConstrTest.cpp
-// demonstrating copy constructor
+// ComplexTest.cpp
+// testing the class of complex numbers
+// with operators' overloading
 //
 #include <iostream>
 #include "Complex.h"
