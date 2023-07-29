@@ -1,13 +1,35 @@
 //
-// Complex.cpp
-// definition of the class of complex numbers
-// with operators' overloading
+// Complex.h
+// definition of the class Complex that represents complex numbers
+// demonstrates operators' overloading
 //
 #pragma once
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Complex {
+    // Overloading >> operator
+    friend std::istream& operator>>(std::istream& is, Complex& complex);
+
+    // Postfix -- operator affecting the real part only
+    friend Complex operator--(Complex& complex, int);
+
+    // Prefix -- operator affecting the real part only (friend function)
+    friend Complex& operator--(Complex& complex);
+
+    // Overloading + operator for Real + Complex
+    friend Complex operator+(const double& realNum, const Complex& complex);
+
+    // Overloading - operator for Real - Complex
+    friend Complex operator-(const double& realNum, const Complex& complex);
+
+    // Overloading * operator for Real * Complex
+    friend Complex operator*(const double& realNum, const Complex& complex);
+
+    // Overloading / operator for Real / Complex
+    friend Complex operator/(const double& realNum, const Complex& complex);
+
 public:
    Complex(double re = 0.0, double imaginary = 0.0);
 
@@ -35,38 +57,23 @@ public:
     // Overloading * operator for Complex * Real
     Complex operator*(const double& realNum) const;
     
-    // Overloading + operator for Real + Complex
-    friend Complex operator+(const double& realNum, const Complex& complex);
-    
-    // Overloading - operator for Real - Complex
-    friend Complex operator-(const double& realNum, const Complex& complex);
-    
-    // Overloading * operator for Real * Complex
-    friend Complex operator*(const double& realNum, const Complex& complex);
-
     // Overloading / operator for Complex / Complex
     Complex operator/(const Complex& other) const;
 
     // Overloading / operator for Complex / Real
     Complex operator/(const double& realNum) const;
-
-    // Overloading / operator for Real / Complex
-    friend Complex operator/(const double& realNum, const Complex& complex);
-
+ 
     // Postfix ++ operator affecting the real part only
     Complex operator++(int);
 
     // Prefix ++ operator affecting the real part only
     Complex& operator++();
 
-    // Postfix -- operator affecting the real part only
-    friend Complex operator--(Complex& complex, int);
+    // Cast operator to convert Complex to double (real part)
+    operator double() const;
 
-    // Prefix -- operator affecting the real part only (friend function)
-    friend Complex& operator--(Complex& complex);
-
-    // Overloading >> operator
-    friend std::istream& operator>>(std::istream& is, Complex& complex);
+    // Cast operator to convert Complex to string
+    operator string() const;
             
     // Function to get the real part of the complex number
     double getReal() const;

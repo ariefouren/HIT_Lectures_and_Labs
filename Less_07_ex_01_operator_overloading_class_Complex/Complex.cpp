@@ -1,14 +1,32 @@
 //
 // Complex.cpp
-// implementation of the class of complex numbers
-// with operators' overloading
+// implementation of the class Complex that represents complex numbers
+// demonstrates operators' overloading
 //
 #include <iostream>
+#include <string>
 #include "Complex.h"
 using namespace std;
 
 Complex::Complex(double re, double imaginary)
     : real(re), imaginary(imaginary) {}
+
+
+// Cast operator to convert Complex to double (real part)
+Complex::operator double() const {
+    return this->real;
+}
+
+// Cast operator to convert Complex to string
+Complex::operator string() const
+{
+    string str = "(" + to_string(real);
+    if (imaginary >= 0) str += " + ";
+    else                str += " - "; 
+    
+    str += to_string(abs(imaginary)) + "i" + ")";
+    return str;
+}
 
 // Overloading + operator for Complex + Complex
 Complex Complex::operator+(const Complex& other) const {
@@ -126,12 +144,7 @@ Complex& operator--(Complex& complex) {
 }
 // Overloading << operator for printing complex numbers
 ostream& operator<<(ostream& os, const Complex& complex) {
-    os << "(" << complex.getReal();
-    if (complex.getImaginary() >= 0)
-        os << " + ";
-    else
-        os << " - ";
-    os << abs(complex.getImaginary()) << "i"<<")";
+    os << (string) complex;
     return os;
 }
 
