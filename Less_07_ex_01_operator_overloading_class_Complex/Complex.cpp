@@ -8,7 +8,7 @@
 #include "Complex.h"
 using namespace std;
 
-Complex::Complex(double re, double imaginary)
+explicit Complex::Complex(double re, double imaginary)
     : real(re), imaginary(imaginary) {}
 
 
@@ -17,8 +17,8 @@ Complex::operator double() const {
     return this->real;
 }
 
-// Cast operator to convert Complex to string
-Complex::operator string() const
+// explicit cast operator to convert Complex to string
+explicit Complex::operator string() const
 {
     string str = "(" + to_string(real);
     if (imaginary >= 0) str += " + ";

@@ -18,7 +18,7 @@ int main() {
     // explicit casting of Complex to double
     double r1 = (double) c1;
 
-    // implicit casting of Complex to string
+    // implicit casting of Complex to double
     double r2 = c2;
     cout << "casting to double: r1 = " << r1 << " r2 = " << r2 << endl;
 
@@ -26,9 +26,10 @@ int main() {
     // explicit casting of Complex to string
     string s1 = (string) c1;
 
-    // implicit casting of Complex to string
-    string s2 = c2;
-    cout << "casting to string: s1 = " << s1 << " s2 = " << s2 << endl;
+    // implicit casting of Complex to string is not allowed
+    // since the cast operator string() is defined as explicit
+    // string s2 = c2; // ERROR ! implicit cast is not allowed
+    cout << "casting to string: s1 = " << s1 << endl;
 
 
     // explicit casting of double to Complex
@@ -37,15 +38,16 @@ int main() {
     Complex c4;
     c4 = (Complex)-4.0;
 
-    // implicit casting of double to Complex
+    // implicit casting of double to Complex 
     // possible if one-argument Complex(double) constructor is defined 
-    Complex c5 = 5.0;
+    // if the constructor is define as explicit, implicit
+    // casting is prohibited
+    // Complex c5 = 5.0;    // ERROR ! implicit casting is prohibited 
     Complex c6; 
-    c6 = 6.0;
+    // c6 = 6.0;            // ERROR ! implicit casting is prohibited  
 
     cout << "explicit and implicit casting of double to Complex: " <<
-            " c3 = " << c3 << " c4 = " << c4 << 
-            " c5 = " << c5 << " c6 = " << c6 << endl ;
+            " c3 = " << c3 << " c4 = " << c4 << endl ;
 
     // testing overloaded operators 
     cout << "\ntesting overloaded operators :" << endl;

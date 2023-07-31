@@ -31,7 +31,9 @@ class Complex {
     friend Complex operator/(const double& realNum, const Complex& complex);
 
 public:
-   Complex(double re = 0.0, double imaginary = 0.0);
+    // the constructor is defined as explicit
+    // to prevent implicit cast
+   explicit Complex(double re = 0.0, double imaginary = 0.0);
 
     // Overloading + operator for Complex + Complex
     Complex operator+(const Complex& other) const;
@@ -73,7 +75,7 @@ public:
     operator double() const;
 
     // Cast operator to convert Complex to string
-    operator string() const;
+    explicit operator string() const;
             
     // Function to get the real part of the complex number
     double getReal() const;

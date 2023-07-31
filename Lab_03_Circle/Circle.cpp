@@ -12,7 +12,7 @@ using namespace std;
 
 const double Circle::PI = 3.14; // initialize static const 
 
-Circle::Circle(const Point& center, double radius):
+Circle::Circle(const Point& center, double radius) :
 	center(center), radius(radius)
 {
 	cout << "constructor for ";
@@ -20,8 +20,8 @@ Circle::Circle(const Point& center, double radius):
 	cout << endl;
 }
 
-Circle::Circle(double radius):
-	center(Point(0,0)), radius(radius)
+Circle::Circle(double radius) :
+	center(Point(0, 0)), radius(radius)
 {
 	cout << "constructor for ";
 	print();
@@ -59,11 +59,11 @@ bool Circle::covers(const Point& point)
 
 bool Circle::covers(const Circle& circle2)
 {
-	return(this->center.distance(circle2.center) + circle2.radius <= 
+	return(this->center.distance(circle2.center) + circle2.radius <=
 		this->radius);
 }
 bool Circle::overlaps(const Circle& circle2)
 {
-	return(this->center.distance(circle2.center) <= 
-			this->radius + circle2.radius);
+	return(this->center.distance(circle2.center) <=
+		this->radius + circle2.radius);
 }
