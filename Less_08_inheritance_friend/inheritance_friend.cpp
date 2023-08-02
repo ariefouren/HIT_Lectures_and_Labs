@@ -17,7 +17,7 @@ private:
 	int privateInA;
 };
 
-class B: public A //private A // protected A 
+class B: private A // protected A //  // public A // //  
 {
 	friend void friendOfB(A& a, B& b);
 public:
