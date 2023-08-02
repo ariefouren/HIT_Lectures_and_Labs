@@ -1,3 +1,6 @@
+#include "..\Less_09_pilymorphism_2\Rectangle.h"
+#include "..\Less_09_pilymorphism_2\Rectangle.h"
+#include "..\Less_09_pilymorphism_2\Rectangle.h"
 //
 // Rectangle.cpp
 // implementation of class Rectangle
@@ -31,6 +34,10 @@ Rectangle::Rectangle()	// if the constructor for class Rectangle
 }
 
 
+Rectangle::Rectangle(double x, double y, double length, double height)
+{
+}
+
 Rectangle::~Rectangle()
 {
 	cout << "destructor for rectangle (";
@@ -38,4 +45,14 @@ Rectangle::~Rectangle()
 	cout << ", ";
 	this->p2.print();
 	cout << ")" << endl;
+}
+
+string Rectangle::toString() const
+{
+	return string();
+}
+
+double Rectangle::area() const
+{
+	return 0.0;
 }
