@@ -11,5 +11,11 @@ using namespace std;
 int main()
 {
 	Circle c1(1, 1, 10);
-	cout << "c1.area() = " << c1.area() << endl;
+	// call to function toString() of the derives class:
+	cout << "c1.toString() = " << c1.toString() << endl;
+	
+	// call to function toString() of the base class:
+	cout << "c1.Shape::toString() = " << c1.Shape::toString() << endl;
+
+
 }

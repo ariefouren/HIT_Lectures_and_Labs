@@ -1,3 +1,8 @@
+//
+// Circle.cpp
+// implementation of class Circle 
+//
+
 #define _USE_MATH_DEFINES
 #include "Circle.h"
 #include <cmath>
@@ -10,15 +15,15 @@ Circle::Circle(double x, double y, double r):
 	Shape(x, y), 
 	r(r)
 {
-	cout << "constructor for " << this->tostring() <<endl;
+	cout << "constructor for " << this->toString() <<endl;
 }
 
 Circle::~Circle()
 {
-	cout << "destructor for " << this->tostring() << endl;
+	cout << "destructor for " << this->toString() << endl;
 }
 
-string Circle::tostring() const
+string Circle::toString() const
 {
 	string str = "Circle[ x =" + to_string(getX()) +
 		", y = " + to_string(getY()) +

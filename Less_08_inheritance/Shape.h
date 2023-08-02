@@ -12,7 +12,7 @@ public:
 	Shape(double x = 0, double y = 0);
 	~Shape();
 
-	string tostring() const;
+	string toString() const;
 	double area() const;
 
 	double getX() const;
