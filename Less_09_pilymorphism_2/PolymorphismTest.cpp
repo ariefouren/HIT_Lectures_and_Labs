@@ -14,7 +14,7 @@ int main()
 	// Pointers and inheritance 
 	// with static binding, the type of the function invoked 
 	// depends on the type of the pointer, not on the type of the object  
-	Shape s(0, 0);
+	Shape s(0, 0); 
 	Circle c(1, 1, 10);
 
 	Shape* shapePtr = &s;

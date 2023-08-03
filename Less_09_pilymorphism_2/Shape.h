@@ -12,7 +12,8 @@ public:
 	Shape(double x = 0, double y = 0);
 	~Shape();
 
-	virtual string toString() const;
+	string toString() const;
+	double area() const { return 0; };
 	
 protected:
 	double x;
