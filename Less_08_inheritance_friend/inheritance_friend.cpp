@@ -17,7 +17,7 @@ private:
 	int privateInA;
 };
 
-class B: private A // protected A //  // public A // //  
+class B:  private A // public A // protected A 
 {
 	friend void friendOfB(A& a, B& b);
 public:
@@ -26,7 +26,8 @@ public:
 		int x;
 		x = publicInA;
 		x = protectedInA;
-		x = privateInA;		// ERROR ! private variable of A
+		x = privateInA;		// ERROR if B inherits from A as 'public'
+							// private variable of A
 							// is inaccessible in the derived class B
 	};
 };
@@ -36,9 +37,10 @@ class C : public B
 	void print() const 
 	{
 		int x;
-		x = publicInA;
-		x = protectedInA;
-		x = privateInA;		// ERROR ! private variable of A
+		x = publicInA;		// ** ERROR if B inherits from A as 'private'
+		x = protectedInA;	// ** ERROR if B inherits from A as 'private'
+		x = privateInA;		// ERROR if B inherits from A as 'public'
+							// ! private variable of A
 							// is inaccessible in the derived class B
 	};
 };
@@ -68,13 +70,13 @@ void friendOfB(A& a, B& b)
 
 	// access to the members of object of class A
 	x = a.publicInA;
-	x = a.protectedInA;
-	x = a.privateInA;
+	x = a.protectedInA;		// ERROR if B inherits from A as 'public'
+	x = a.privateInA;		// ERROR if B inherits from A as 'public'
 
 	// access to the members of object of class B
 	x = b.publicInA;
 	x = b.protectedInA;
-	x = b.privateInA;
+	x = b.privateInA;		// ERROR if B inherits from A as 'public'
 }
 
 
@@ -87,19 +89,19 @@ int main()
 	int x;
 
 	// access to object of class A
-	x = a.publicInA;
-	x = a.protectedInA;
-	x = a.privateInA;
+	x = a.publicInA;		
+	x = a.protectedInA;		// ERROR if B inherits from A as 'public'
+	x = a.privateInA;		// ERROR if B inherits from A as 'public'
 
 	// access to object of class B
-	x = b.publicInA;
-	x = b.protectedInA;
-	x = b.privateInA;
+	x = b.publicInA;		// * ERROR if B inherits from A as 'protected'
+	x = b.protectedInA;		// ERROR if B inherits from A as 'public'
+	x = b.privateInA;		// ERROR if B inherits from A as 'public'
 
 	// access to object of class C
-	x = c.publicInA;
-	x = c.protectedInA;
-	x = c.privateInA;
+	x = c.publicInA;		// * ERROR if B inherits from A as 'protected'
+	x = c.protectedInA;		// ERROR if B inherits from A as 'public'
+	x = c.privateInA;		// ERROR if B inherits from A as 'public'
 }
 
 
