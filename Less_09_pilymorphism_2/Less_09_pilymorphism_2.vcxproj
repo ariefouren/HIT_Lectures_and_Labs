@@ -24,7 +24,7 @@
     <ProjectGuid>{ee225c59-9599-497c-a84c-c23d7327e12e}</ProjectGuid>
     <RootNamespace>Less09pilymorphism2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Less_09_polymorphism_2</ProjectName>
+    <ProjectName>Less_09_polymorphism</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

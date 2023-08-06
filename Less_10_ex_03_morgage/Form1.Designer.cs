@@ -64,7 +64,7 @@ namespace Less_10_ex_03_morgage
             this.radioButtonFV.TabStop = true;
             this.radioButtonFV.Text = "FV";
             this.radioButtonFV.UseVisualStyleBackColor = true;
-            this.radioButtonFV.CheckedChanged += new System.EventHandler(this.radioButtonFV_CheckedChanged);
+            
             // 
             // radioButtonPV
             // 
@@ -76,7 +76,7 @@ namespace Less_10_ex_03_morgage
             this.radioButtonPV.TabStop = true;
             this.radioButtonPV.Text = "PV";
             this.radioButtonPV.UseVisualStyleBackColor = true;
-            this.radioButtonPV.CheckedChanged += new System.EventHandler(this.radioButtonPV_CheckedChanged);
+            
             // 
             // buttonCalculate
             // 
@@ -117,7 +117,7 @@ namespace Less_10_ex_03_morgage
             this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Annual Rate (in %)";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            
             // 
             // label2
             // 
