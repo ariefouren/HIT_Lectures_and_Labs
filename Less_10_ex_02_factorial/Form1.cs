@@ -20,7 +20,7 @@ namespace Less_10_ex_02_factorial
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
             int fact = 1;
-            int n = Int32.Parse(textBox1.Text);
+            int n = int.Parse(textBox1.Text);
             for(int i = 1; i<=n; i++)
             {
                 fact *= i;

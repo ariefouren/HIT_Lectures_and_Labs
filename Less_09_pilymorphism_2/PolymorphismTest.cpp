@@ -6,7 +6,7 @@
 #include <iostream>
 #include "Shape.h"
 #include "Circle.h"
-#include "Rectangle.h"VSCODE
+#include "Rectangle.h"
 using namespace std;
 
 int main()

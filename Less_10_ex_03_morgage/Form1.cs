@@ -35,12 +35,12 @@ namespace Less_10_ex_03_morgage
             if(type == CalcType.FV)
             {
                 double fv = (pmt * (Math.Pow(1 + rate, nper) - 1)) / rate;
-                label4.Text = "FV = " + fv.ToString(".00"); 
+                label4.Text = "FV = " + fv.ToString("###,###,###.00");
             }
             else // type == PV
             {
                 double pv = pmt * ((1 - Math.Pow(1 + rate, -nper)) / rate);
-                label4.Text = "PV = " + pv.ToString(".00");
+                label4.Text = "PV = " + pv.ToString("###,###,###.00");
             }
             
         }

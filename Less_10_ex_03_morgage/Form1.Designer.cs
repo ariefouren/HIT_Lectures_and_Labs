@@ -30,8 +30,8 @@ namespace Less_10_ex_03_morgage
         private void InitializeComponent()
         {
             this.groupBoxType = new System.Windows.Forms.GroupBox();
-            this.radioButtonPV = new System.Windows.Forms.RadioButton();
             this.radioButtonFV = new System.Windows.Forms.RadioButton();
+            this.radioButtonPV = new System.Windows.Forms.RadioButton();
             this.buttonCalculate = new System.Windows.Forms.Button();
             this.textBoxRate = new System.Windows.Forms.TextBox();
             this.textBoxNper = new System.Windows.Forms.TextBox();
@@ -54,18 +54,6 @@ namespace Less_10_ex_03_morgage
             this.groupBoxType.TabStop = false;
             this.groupBoxType.Text = "Choose PV or FV";
             // 
-            // radioButtonPV
-            // 
-            this.radioButtonPV.AutoSize = true;
-            this.radioButtonPV.Location = new System.Drawing.Point(19, 33);
-            this.radioButtonPV.Name = "radioButtonPV";
-            this.radioButtonPV.Size = new System.Drawing.Size(55, 24);
-            this.radioButtonPV.TabIndex = 0;
-            this.radioButtonPV.TabStop = true;
-            this.radioButtonPV.Text = "PV";
-            this.radioButtonPV.UseVisualStyleBackColor = true;
-            this.radioButtonPV.CheckedChanged += new System.EventHandler(this.radioButtonPV_CheckedChanged);
-            // 
             // radioButtonFV
             // 
             this.radioButtonFV.AutoSize = true;
@@ -78,9 +66,21 @@ namespace Less_10_ex_03_morgage
             this.radioButtonFV.UseVisualStyleBackColor = true;
             this.radioButtonFV.CheckedChanged += new System.EventHandler(this.radioButtonFV_CheckedChanged);
             // 
+            // radioButtonPV
+            // 
+            this.radioButtonPV.AutoSize = true;
+            this.radioButtonPV.Location = new System.Drawing.Point(19, 33);
+            this.radioButtonPV.Name = "radioButtonPV";
+            this.radioButtonPV.Size = new System.Drawing.Size(55, 24);
+            this.radioButtonPV.TabIndex = 0;
+            this.radioButtonPV.TabStop = true;
+            this.radioButtonPV.Text = "PV";
+            this.radioButtonPV.UseVisualStyleBackColor = true;
+            this.radioButtonPV.CheckedChanged += new System.EventHandler(this.radioButtonPV_CheckedChanged);
+            // 
             // buttonCalculate
             // 
-            this.buttonCalculate.Location = new System.Drawing.Point(490, 211);
+            this.buttonCalculate.Location = new System.Drawing.Point(490, 189);
             this.buttonCalculate.Name = "buttonCalculate";
             this.buttonCalculate.Size = new System.Drawing.Size(171, 59);
             this.buttonCalculate.TabIndex = 1;
@@ -104,7 +104,7 @@ namespace Less_10_ex_03_morgage
             // 
             // textBoxPmt
             // 
-            this.textBoxPmt.Location = new System.Drawing.Point(234, 211);
+            this.textBoxPmt.Location = new System.Drawing.Point(234, 189);
             this.textBoxPmt.Name = "textBoxPmt";
             this.textBoxPmt.Size = new System.Drawing.Size(245, 26);
             this.textBoxPmt.TabIndex = 4;
@@ -131,7 +131,7 @@ namespace Less_10_ex_03_morgage
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 211);
+            this.label3.Location = new System.Drawing.Point(39, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 20);
             this.label3.TabIndex = 7;
@@ -140,7 +140,7 @@ namespace Less_10_ex_03_morgage
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(100, 289);
+            this.label4.Location = new System.Drawing.Point(39, 267);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 8;
@@ -150,7 +150,7 @@ namespace Less_10_ex_03_morgage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 450);
+            this.ClientSize = new System.Drawing.Size(680, 370);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
