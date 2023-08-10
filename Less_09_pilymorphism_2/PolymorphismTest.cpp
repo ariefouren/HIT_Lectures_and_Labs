@@ -11,6 +11,7 @@ using namespace std;
 
 int main()
 {
+	/*
 	// Pointers and inheritance 
 	// with static binding, the type of the function invoked 
 	// depends on the type of the pointer, not on the type of the object  
@@ -41,17 +42,19 @@ int main()
 	// c = s;	// ERROR ! no operator Circle = Shape is defined
 			// since not all the members of Circle can be set 
 			// using the members of Shape 
-	
-	cout << endl << endl;
+	*/
+
+	//cout << endl << endl;
 	int numOfShapes = 3;
 	Shape* *shapesArr = new Shape*[numOfShapes]; // array of pointers to Shape
-	shapesArr[0] = new Shape(0, 0);
+	shapesArr[0] = new Circle(0, 0, 12);
 	shapesArr[1] = new Circle(1, 1, 1);
 	shapesArr[2] = new Rectangle(2, 2, 2, 2);
 
 	for (int i = 0; i < numOfShapes; i++)
 	{
-		cout << "shapesArr[" << i << "]->toString() = " << shapesArr[i]->toString() << endl;
+		cout << "shapesArr[" << i << "]->toString() = " 
+			<< shapesArr[i]->toString() << endl;
 		
 		Shape& shapeRef = *shapesArr[i];
 		cout << "shapeRef.toString() = " << shapeRef.toString() << endl << endl;
