@@ -1,14 +1,13 @@
 ﻿// MyGraph.cs
 using System;
-using System.Collections;
 using System.Drawing;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Less_11_ex_02_graph
 {
+    [Serializable] // allow serialization: the objects can be stored 
+    // and restored from file
     class MyGraph
     {
         private List<Vertex> vertices = new List<Vertex>();
@@ -17,19 +16,64 @@ namespace Less_11_ex_02_graph
         private int selectedVertex = -1;
         private Color edgesColor = Color.Black;
 
+        public void AddVertex(Vertex vertex)
+        {
+            vertices.Add(vertex);
+            // add an empty adjacency list for new vertex
+            adjacencyList.Add( new List<int>());
+        }
+
+        // returns index of vertex that
+        // contains given point
+        public int VertexAtPoint(Point point)
+        {
+            // find if ether vertex contains the given point
+            for (int i = 0; i < vertices.Count; i++)
+            {
+                if (vertices[i].GetBounds().Contains(point))
+                    return i;
+            }
+            return -1;
+        }
+
+        public void SelectVertex(int vertexIndex)
+        {
+            // deselect the previously selected vertex if necessary
+            if (selectedVertex > -1)
+            {
+                vertices[selectedVertex].Selected = false;
+            }
+            // select new vertex
+            selectedVertex = vertexIndex;
+            vertices[selectedVertex].Selected = true;
+
+        }
+
+        public void DeselectVertex()
+        {
+            // deselect the previously selected vertex if necessary
+            if (selectedVertex > -1)
+            {
+                vertices[selectedVertex].Selected = false;
+            }
+            // select new vertex
+            selectedVertex = -1;
+        }
+
+        public void MoveSelectedVertex(Point point)
+        {
+            if (selectedVertex > -1) // there is a selected vertex
+            {
+                vertices[selectedVertex].SetLocation(point);
+            }
+        }
+
         public int SelectedVertex
         {
             get
             {
                 return selectedVertex;
             }
-        }
-
-        public void AddVertex(Vertex vertex)
-        {
-            vertices.Add(vertex);
-            // add an empty adjacency list for new vertex
-            adjacencyList.Add( new List<int>());
         }
 
         public bool HasEdge(int uIndex, int vIndex)
@@ -44,6 +88,7 @@ namespace Less_11_ex_02_graph
             return false;
                 
         }
+
         public void AddEdge(int uIndex, int vIndex)
         {
             if((0 <= uIndex) && (uIndex < vertices.Count) 
@@ -78,59 +123,14 @@ namespace Less_11_ex_02_graph
                 vertex.Draw(graphicsObject);
             }
         }
-
-        // returns index of vertex that
-        // contains given point
-        public int VertexAtPoint(Point point)
-        {
-            // find if ether vertex contains the given point
-            for(int i = 0; i < vertices.Count; i++)
-            {
-                if (vertices[i].GetBounds().Contains(point))
-                    return i;
-            }
-            return -1;
-        }
-       
-        public void SelectVertex(int vertexIndex)
-        {
-            // deselect the previously selected vertex if necessary
-            if (selectedVertex > -1)
-            {
-                vertices[selectedVertex].Selected = false;
-            }
-            // select new vertex
-            selectedVertex = vertexIndex;
-            vertices[selectedVertex].Selected = true;
-            
-        }
-
-        public void DeselectVertex()
-        {
-            // deselect the previously selected vertex if necessary
-            if (selectedVertex > -1)
-            {
-                vertices[selectedVertex].Selected = false;
-            }
-            // select new vertex
-            selectedVertex = -1;
-        }
-
-        public void MoveSelectedVertex(Point point)
-        {
-            if(selectedVertex > -1) // there is a selected vertex
-            {
-                vertices[selectedVertex].SetLocation(point);
-            }
-        }
-
+                
         public int NumOfVertices
         {
             get
             {
                 return vertices.Count;
             }
-            // no set accessors
+            // no set accessor
         }
     }
 }

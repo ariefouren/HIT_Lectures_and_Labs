@@ -33,7 +33,8 @@ namespace Less_11_ex_02_graph
             this.radioButtonEdges = new System.Windows.Forms.RadioButton();
             this.radioButtonVertices = new System.Windows.Forms.RadioButton();
             this.panelDraw = new System.Windows.Forms.Panel();
-            this.labelOutput = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonOpen = new System.Windows.Forms.Button();
             this.groupBoxSelectType.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,14 +84,25 @@ namespace Less_11_ex_02_graph
             this.panelDraw.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelDraw_MouseMove);
             this.panelDraw.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panelDraw_MouseUp);
             // 
-            // labelOutput
+            // buttonSave
             // 
-            this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(598, 182);
-            this.labelOutput.Name = "labelOutput";
-            this.labelOutput.Size = new System.Drawing.Size(40, 20);
-            this.labelOutput.TabIndex = 2;
-            this.labelOutput.Text = "Test";
+            this.buttonSave.Location = new System.Drawing.Point(592, 303);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(186, 49);
+            this.buttonSave.TabIndex = 2;
+            this.buttonSave.Text = "Save...";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonOpen
+            // 
+            this.buttonOpen.Location = new System.Drawing.Point(593, 375);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(186, 49);
+            this.buttonOpen.TabIndex = 3;
+            this.buttonOpen.Text = "Open...";
+            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // Form1
             // 
@@ -98,7 +110,8 @@ namespace Less_11_ex_02_graph
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelOutput);
+            this.Controls.Add(this.buttonOpen);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.panelDraw);
             this.Controls.Add(this.groupBoxSelectType);
             this.Name = "Form1";
@@ -106,7 +119,6 @@ namespace Less_11_ex_02_graph
             this.groupBoxSelectType.ResumeLayout(false);
             this.groupBoxSelectType.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -116,7 +128,8 @@ namespace Less_11_ex_02_graph
         private System.Windows.Forms.RadioButton radioButtonEdges;
         private System.Windows.Forms.RadioButton radioButtonVertices;
         private System.Windows.Forms.Panel panelDraw;
-        private System.Windows.Forms.Label labelOutput;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonOpen;
     }
 }
 

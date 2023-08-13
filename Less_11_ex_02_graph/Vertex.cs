@@ -1,13 +1,11 @@
 ﻿// Vertex.cs
 using System;
 using System.Drawing;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Less_11_ex_02_graph
 {
+    [Serializable] // allow serialization: the objects can be stored 
+    // and restored from file
     class Vertex
     {
         private int xPos;
@@ -53,21 +51,6 @@ namespace Less_11_ex_02_graph
             graphicsObject.DrawEllipse(pen, boundingRectangle);
         }
 
-        public Color BackgroundColor
-        {
-            set
-            {
-                backgroundColor = value;
-            }
-        }
-
-        // get bound rectangle of the vertex 
-        // used for checking collisions 
-        public Rectangle GetBounds()
-        {
-            return boundingRectangle;
-        }
-
         public int XPos
         {
             get { return xPos; }
@@ -78,7 +61,6 @@ namespace Less_11_ex_02_graph
             get { return yPos; }
         }
 
-
         public void SetLocation(Point point)
         {
             xPos = point.X;
@@ -87,7 +69,6 @@ namespace Less_11_ex_02_graph
                     yPos - radius,
                     2 * radius,
                     2 * radius);
-
         }
 
         public bool Selected
@@ -106,8 +87,21 @@ namespace Less_11_ex_02_graph
                     backgroundColor = Color.White;
                 }
             }
+        }
 
+        // get bound rectangle of the vertex 
+        // used for checking collisions 
+        public Rectangle GetBounds()
+        {
+            return boundingRectangle;
+        }
 
+        public Color BackgroundColor
+        {
+            set
+            {
+                backgroundColor = value;
+            }
         }
     }
 }

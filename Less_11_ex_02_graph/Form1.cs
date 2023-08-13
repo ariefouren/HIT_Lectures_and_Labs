@@ -1,13 +1,11 @@
 ﻿// Form1.cs
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Less_11_ex_02_graph
 {
@@ -57,9 +55,6 @@ namespace Less_11_ex_02_graph
                 // both vertices exist
                 {
                     graph.AddEdge(prevSelectedVertex, currentVertex);
-                    Console.Write("\n Edge {0}-->{1} added",
-                        prevSelectedVertex,
-                        currentVertex);
                     graph.DeselectVertex();
                 }
                 else if(prevSelectedVertex == -1 &&
@@ -89,15 +84,9 @@ namespace Less_11_ex_02_graph
                 graph.MoveSelectedVertex(point);
                 if (graph.SelectedVertex > -1)
                 {
-                    /*
-                     * Rectangle invalidateRactangle =
-                      new Rectangle(point.X - 50, point.Y - 50, 100, 100);
-                    */
-                    panelDraw.Invalidate();
+                     panelDraw.Invalidate();
                 }
             }
-                
-
         }
 
         private void panelDraw_MouseUp(object sender, MouseEventArgs e)
@@ -107,16 +96,72 @@ namespace Less_11_ex_02_graph
                 graph.DeselectVertex();
                 panelDraw.Invalidate();
             }
-                
+        }
 
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialog1.Filter = "model files (*.mdl)|*.mdl|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.RestoreDirectory = true;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                IFormatter formatter = new BinaryFormatter();
+                // 'using' statement ensures that the object is disposed
+                // even if an exception occurs within the block of the using statement.
+                // specifically, the opened file is properly closed
+                // after it is processed.
+                using (Stream stream = new FileStream(saveFileDialog1.FileName, 
+                    FileMode.Create,    // create a new file or overwrite an existing file
+                    FileAccess.Write,   // enable writing to the file
+                    FileShare.None))    // prevent other processes from accessing the file
+                                        // while it's being written
+                {
+                    // serialize the 'graph' object
+                    // and writes the serialized data to the file stream
+                    formatter.Serialize(stream, graph); 
+                }
+            }
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {   // creates an instance of the OpenFileDialog class,
+            // which provides a dialog for opening files
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            // set the initial directory for the file dialog
+            // to the current working directory of the application
+            openFileDialog1.InitialDirectory = Directory.GetCurrentDirectory();
+            // specify the filter options for the file dialog
+            // allow the user to select files with .mdl extension or any other type of file
+            openFileDialog1.Filter = "model files (*.mdl)|*.mdl|All files (*.*)|*.*";
+            // set the default filter to the first filter option
+            openFileDialog1.FilterIndex = 1;
+            // ensures that the dialog box restores the current directory
+            // to its original value if the user changes the directory while browsing
+            openFileDialog1.RestoreDirectory = true;
+            // display the file dialog and check if the user clicked the "OK" button
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                // open the selected file in read mode using a 'FileStream'
+                Stream stream = File.Open(openFileDialog1.FileName, FileMode.Open);
+                // create an instance of the BinaryFormatter class,
+                // which is used for deserializing binary data
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                // deserialize the data from the file stream using the BinaryFormatter
+                // and casts it to object 'graph' of the MyGraph class
+                graph = (MyGraph)binaryFormatter.Deserialize(stream);
+                // update the displayed graph after loading its data from the file
+                panelDraw.Invalidate();
+            }
         }
     }
 
     // TODO:
     // 1. Convert ArrayList to List<T>      [Done]
-    // 2. Implement serialization
-    // 3. Implement edges
-    // 4. Implement vertex delete (?)
+    // 2. Implement serialization           [Done]
+    // 3. Implement edges                   [Done]
+    // 4. Implement vertex delete 
     // 5. Implement vertex inheritance
 
 }
