@@ -68,6 +68,17 @@ namespace Less_11_ex_02_graph
             return boundingRectangle;
         }
 
+        public int XPos
+        {
+            get { return xPos; }
+        }
+
+        public int YPos
+        {
+            get { return yPos; }
+        }
+
+
         public void SetLocation(Point point)
         {
             xPos = point.X;

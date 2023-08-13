@@ -11,8 +11,11 @@ namespace Less_11_ex_02_graph
 {
     class MyGraph
     {
-        private ArrayList vertices = new ArrayList();
+        private List<Vertex> vertices = new List<Vertex>();
+        private List<List<int>> adjacencyList = 
+            new List<List<int>>();
         private int selectedVertex = -1;
+        private Color edgesColor = Color.Black;
 
         public int SelectedVertex
         {
@@ -25,10 +28,51 @@ namespace Less_11_ex_02_graph
         public void AddVertex(Vertex vertex)
         {
             vertices.Add(vertex);
+            // add an empty adjacency list for new vertex
+            adjacencyList.Add( new List<int>());
+        }
+
+        public bool HasEdge(int uIndex, int vIndex)
+        {
+            if ((0 <= uIndex) && (uIndex < vertices.Count)
+                && (0 <= vIndex) && (vIndex < vertices.Count))
+            {
+                foreach (int vertexIndex in adjacencyList[uIndex])
+                    if(vertexIndex == vIndex)
+                        return true;
+            }
+            return false;
+                
+        }
+        public void AddEdge(int uIndex, int vIndex)
+        {
+            if((0 <= uIndex) && (uIndex < vertices.Count) 
+                && (0 <= vIndex) && (vIndex < vertices.Count))
+            {
+                if(! HasEdge(uIndex, vIndex))
+                {
+                    adjacencyList[uIndex].Add(vIndex);
+                    Console.WriteLine("\n Edge {0}--{1} added", uIndex, vIndex);
+                }
+            }
         }
 
         public void Draw(Graphics graphicsObject)
         {
+            // draw edges
+            Pen pen = new Pen(edgesColor);
+            for(int uIndex = 0; uIndex < adjacencyList.Count; uIndex++)
+            {
+                foreach(int vIndex in adjacencyList[uIndex])
+                {
+                    graphicsObject.DrawLine(pen,
+                        vertices[uIndex].XPos,
+                        vertices[uIndex].YPos,
+                        vertices[vIndex].XPos,
+                        vertices[vIndex].YPos);
+                }
+                    
+            }
             foreach(Vertex vertex in vertices )
             {
                 vertex.Draw(graphicsObject);
@@ -37,26 +81,27 @@ namespace Less_11_ex_02_graph
 
         // returns index of vertex that
         // contains given point
-        public void SelectVertex(Point point)
+        public int VertexAtPoint(Point point)
         {
             // find if ether vertex contains the given point
             for(int i = 0; i < vertices.Count; i++)
             {
-                if (((Vertex)vertices[i]).GetBounds().Contains(point))
-                    SelectVertex(i);
+                if (vertices[i].GetBounds().Contains(point))
+                    return i;
             }
+            return -1;
         }
        
-        void SelectVertex(int vertexIndex)
+        public void SelectVertex(int vertexIndex)
         {
             // deselect the previously selected vertex if necessary
             if (selectedVertex > -1)
             {
-                ((Vertex)vertices[selectedVertex]).Selected = false;
+                vertices[selectedVertex].Selected = false;
             }
             // select new vertex
             selectedVertex = vertexIndex;
-            ((Vertex)vertices[selectedVertex]).Selected = true;
+            vertices[selectedVertex].Selected = true;
             
         }
 
@@ -65,7 +110,7 @@ namespace Less_11_ex_02_graph
             // deselect the previously selected vertex if necessary
             if (selectedVertex > -1)
             {
-                ((Vertex)vertices[selectedVertex]).Selected = false;
+                vertices[selectedVertex].Selected = false;
             }
             // select new vertex
             selectedVertex = -1;
@@ -75,7 +120,7 @@ namespace Less_11_ex_02_graph
         {
             if(selectedVertex > -1) // there is a selected vertex
             {
-                ((Vertex)vertices[selectedVertex]).SetLocation(point);
+                vertices[selectedVertex].SetLocation(point);
             }
         }
 
