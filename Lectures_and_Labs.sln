@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class_11_ex_03-paint", "Cla
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_12_ex_01_dynamic_casting", "Less_12_ex_01_dynamic_casting\Less_12_ex_01_dynamic_casting.vcxproj", "{D746BF44-7CA1-4624-B3BC-A2D822880A67}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_12_ex_02_multiple_inheritance", "Less_12_ex_02_multiple_inheritance\Less_12_ex_02_multiple_inheritance.vcxproj", "{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -381,6 +383,16 @@ Global
 		{D746BF44-7CA1-4624-B3BC-A2D822880A67}.Release|x64.Build.0 = Release|x64
 		{D746BF44-7CA1-4624-B3BC-A2D822880A67}.Release|x86.ActiveCfg = Release|Win32
 		{D746BF44-7CA1-4624-B3BC-A2D822880A67}.Release|x86.Build.0 = Release|Win32
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Debug|x64.ActiveCfg = Debug|x64
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Debug|x64.Build.0 = Debug|x64
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Debug|x86.Build.0 = Debug|Win32
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Release|Any CPU.ActiveCfg = Release|Win32
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Release|x64.ActiveCfg = Release|x64
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Release|x64.Build.0 = Release|x64
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Release|x86.ActiveCfg = Release|Win32
+		{EA1DE798-E0AE-4439-8CD2-6314EAD8135A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
