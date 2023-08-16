@@ -97,7 +97,6 @@ namespace Less_11_ex_02_graph
                 if(! HasEdge(uIndex, vIndex))
                 {
                     adjacencyList[uIndex].Add(vIndex);
-                    Console.WriteLine("\n Edge {0}--{1} added", uIndex, vIndex);
                 }
             }
         }
