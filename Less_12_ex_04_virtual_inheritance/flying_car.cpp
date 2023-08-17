@@ -116,7 +116,7 @@ int main() {
         << flyingCar.Car::getSerialNumber() << endl;
 
     cout << "flyingCar.Airplane::getSerialNumber() = "
-        << flyingCar.Airplane::getSerialNumber() << endl << endl;
+        << flyingCar.Airplane::getSerialNumber() << endl;
 
     cout << "flyingCar.getSerialNumber() = " 
         << flyingCar.getSerialNumber() << endl; // Now it's OK
