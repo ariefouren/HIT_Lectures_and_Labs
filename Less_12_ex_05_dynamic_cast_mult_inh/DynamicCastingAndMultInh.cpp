@@ -7,7 +7,11 @@
 using namespace std;
 
 using namespace std;
-class Vehicle
+
+class Machine {
+};
+
+class Vehicle: virtual public Machine
 {
     static int numVehicles;
 
@@ -123,5 +127,19 @@ int main() {
     // ERROR ! Base class "Vehicle" is ambiguous
     Vehicle* vehiclePtr3 = dynamic_cast<Vehicle*>(flyingCarPtr);
 
+    // OK
+    vehiclePtr3 =
+        dynamic_cast<Vehicle*>(dynamic_cast<Car*>(flyingCarPtr));
+
+    // OK, since "Vehicle" virtually inherits from "Machine" 
+    // there is only one instance of "Machine" in "FlyinCar" 
+    Machine* machinePtr = dynamic_cast<Machine*>(flyingCarPtr);
+
+    // ERROR ! 
+    vehiclePtr3 = dynamic_cast<Vehicle*>(machinePtr);
+    // ERROR !
+    carPtr = dynamic_cast<Car*>(machinePtr);
+    // ERROR !
+    flyingCarPtr = dynamic_cast<FlyingCar*>(machinePtr);
     return 0;
 }
