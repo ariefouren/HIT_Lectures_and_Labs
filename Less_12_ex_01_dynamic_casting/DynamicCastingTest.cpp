@@ -1,6 +1,6 @@
 //
-// PolymorphismTest.cpp
-// Testing classes Shape and Circle
+// DynamicCastingTest.cpp
+// Testing dynamic casting and virtual destructors
 //   
 
 #include <iostream>

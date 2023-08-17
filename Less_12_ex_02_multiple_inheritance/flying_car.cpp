@@ -55,6 +55,12 @@ public:
     }
 
     // Override startEngine from Car
+    // 'override' keyword informs the compiler that 
+    // we intend to override the base class functions. 
+    // If the function signature in the derived class does 
+    // not match a virtual function in the base class, 
+    // or if there's no matching function in the base class, 
+    // the compiler will generate an error
     virtual  void startEngine() override {
         cout << "The flying car's engine is starting." << endl;
     }
