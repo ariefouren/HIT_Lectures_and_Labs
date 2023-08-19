@@ -118,7 +118,7 @@ int main() {
     cout << "flyingCar.Airplane::getSerialNumber() = "
         << flyingCar.Airplane::getSerialNumber() << endl << endl;
 
-    // cout << flyingCar.getSerialNumber() << endl; // ERROR ! ambiguity
+    cout << flyingCar.getSerialNumber() << endl; // ERROR ! ambiguity
 
     return 0;
 }
