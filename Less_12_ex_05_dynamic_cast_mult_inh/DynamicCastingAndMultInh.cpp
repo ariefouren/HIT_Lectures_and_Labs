@@ -131,17 +131,21 @@ int main() {
     // (class with at least one virtual function)
     
     // demonstrating dynamic upcast
-    cout << "\n=== demonstrating dynamic upcast ===";
+    cout << "\n=== demonstrating dynamic upcast ===\n";
     
     // OK. upcasting from FlyinCar* to Vehicle* 
     // through Car* is unambiguous 
     Car* carPtr = dynamic_cast<Car*>(flyingCarPtr); 
     Vehicle* vehiclePtr1 = dynamic_cast<Vehicle*>(carPtr);
+    cout << "Vehicle (trough Car): serial number = "
+        << vehiclePtr1->getSerialNumber() << endl;
 
     // OK. upcasting from FlyingCar* to Vehicle* 
     // through Airplane* is unambiguous 
     Vehicle* vehiclePtr2 = dynamic_cast<Vehicle*>
         (dynamic_cast<Airplane*>(flyingCarPtr));
+    cout << "Vehicle (trough Airplane): serial number = "
+        << vehiclePtr2->getSerialNumber() << endl;
 
     // OK. the upcasting from FlyingCar* to Machine* is unambiguous.
     // there is only one copy of Machine object in 
@@ -155,7 +159,7 @@ int main() {
 
     
     // demonstrating dynamic downcast
-    cout << "=== demonstrating dynamic downcast ===\n";
+    cout << "\n=== demonstrating dynamic downcast ===\n";
     // OK, since FlyingCar is a Machine
     machinePtr = flyingCarPtr; 
 
@@ -176,14 +180,14 @@ int main() {
     cout << "FlyingCar: Airplane serial number: " <<
         flyingCarPtr2->Airplane::getSerialNumber() << endl<< endl;
 
-    // 
+    // OK
     vehiclePtr1 = dynamic_cast<Vehicle*>
         (dynamic_cast<Car*>
             (dynamic_cast<FlyingCar*>(machinePtr)));
     cout << "Vehicle (trough Car): serial number = " 
         << vehiclePtr1->getSerialNumber() << endl;
          
-    // 
+    // OK
     vehiclePtr2 = dynamic_cast<Vehicle*>
         (dynamic_cast<Airplane*>
             (dynamic_cast<FlyingCar*>(machinePtr)));
