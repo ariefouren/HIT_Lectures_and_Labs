@@ -110,7 +110,7 @@ int main()
    cout << "Attempt to assign 1000 to integers1[15]" << endl;
    integers1[ 15 ] = 1000;  // ERROR: out of range
 
-  // ERROR !
+  // ERROR ! No operator matches Array<double> = Array<int>
   // doubles1 = integers1;
 
    return 0;
