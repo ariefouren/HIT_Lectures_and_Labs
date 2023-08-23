@@ -5,37 +5,6 @@
 
 using namespace std;
 
-// Overloaded input operator for class Array;
-// inputs values for entire array.
-template <class T>
-istream& operator>>(istream& input, Array<T>& a)
-{
-    for (int i = 0; i < a.size; i++)
-        input >> a.ptr[i];
-
-    return input;   // enables cin >> x >> y;
-}
-
-// Overloaded output operator for class Array 
-template <class T>
-ostream& operator<<(ostream& output, const Array<T>& a)
-{
-    int i;
-
-    for (i = 0; i < a.size; i++) {
-        output << setw(6) << a.ptr[i];
-
-        if ((i + 1) % 8 == 0) // 8 numbers per row of output
-            output << endl;
-    }
-
-    if (i % 8 != 0)
-        output << endl;
-
-    return output;   // enables cout << x << y;
-}
-
-
 int main()
 {
     // create two <int> arrays
@@ -49,8 +18,8 @@ int main()
 
    cout << "# of <double> arrays = "
        << Array<double>::getArrayCount() << endl<<endl;
-
-   int sz=integers1;
+   
+   int sz = integers1.getSize();
    cout<<"integers1 has "<<sz<<" elements"<<endl<<endl;
 
    // print integers1 size and contents
@@ -85,8 +54,7 @@ int main()
         << integers3.getSize()
         << "\nArray after initialization:\n"
         << integers3 << '\n';
-   
-
+  
    // use overloaded assignment (=) operator
    cout << "Assigning integers2 to integers1:\n";
    integers1 = integers2;
@@ -98,16 +66,16 @@ int main()
    if ( integers1 == integers2 )
       cout << "They are equal\n\n";
 
-   // use overloaded subscript operator to create rvalue
+   // use overloaded subscript operator to create r-value
    cout << "integers1[5] is " << integers1[ 5 ] << '\n';
 
-   // use overloaded subscript operator to create lvalue
-   cout << "Assigning 1000 to integers1[5]\n";
+   // use overloaded subscript operator to create l-value
+   cout << "Assigning integers1[5] = 1000 \n";
    integers1[ 5 ] = 1000;
    cout << "integers1:\n" << integers1 << '\n';
 
    // attempt to use out of range subscript
-   cout << "Attempt to assign 1000 to integers1[15]" << endl;
+   cout << "Attempt to assign integers1[15] = 1000" << endl;
    integers1[ 15 ] = 1000;  // ERROR: out of range
 
   // ERROR ! No operator matches Array<double> = Array<int>

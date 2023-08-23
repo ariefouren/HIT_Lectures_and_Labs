@@ -15,7 +15,6 @@ class Array {
    template <class T>
         friend istream &operator>>( istream &, Array<T> & );
 public:
-   
    Array( int = 10 );                   // default constructor
    Array( const Array & );              // copy constructor
    virtual ~Array();                            // destructor
@@ -24,18 +23,13 @@ public:
    bool operator==( const Array & ) const;  // compare equal
 
    int getSize() const;                 // return size
-   // Determine if two arrays are not equal and
-   // return true, otherwise return false (uses operator==).
+   // Determine if two arrays are not equal (uses operator==).
    bool operator!=( const Array &right ) const  
       { return ! ( *this == right ); }
    
    T &operator[]( int );    // subscript operator - returns lval
-   const T &operator[]( int ) const;    // subscript operator - returns rval
-   operator int()
-   {
-	   return size;
-   }
-
+   const T &operator[]( int ) const; // subscript operator - returns rval
+ 
    static int getArrayCount();          // Return count of 
                                         // arrays instantiated.
 private:

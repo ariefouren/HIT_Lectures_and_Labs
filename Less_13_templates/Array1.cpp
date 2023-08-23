@@ -25,16 +25,18 @@ Array<T>::Array( int arraySize )
 }
 
 // Copy constructor for class Array
-// must receive a reference to prevent infinite recursion
+// must receive a reference to prevent infinite recursion 
+// [Q] why the problem arises and why passing the parameter by 
+//     reference solves it ?
 template <class T>
-Array<T>::Array( const Array &init ) : size( init.size )
+Array<T>::Array( const Array &initArr ) : size( initArr.size )
 {
-   ptr = new T[ size ]; // create space for array
-   assert( ptr != 0 );    // terminate if memory not allocated
-   ++arrayCount;          // count one more object
+   ptr = new T[ size ];     // create space for array
+   assert( ptr != 0 );      // terminate if memory not allocated
+   ++arrayCount;            // count one more object
 
    for ( int i = 0; i < size; i++ )
-      ptr[ i ] = init.ptr[ i ];  // copy init into object
+      ptr[ i ] = initArr.ptr[ i ];  // copy initArr into object
 }
 
 // Destructor for class Array
@@ -51,7 +53,7 @@ int Array<T>::getSize() const { return size; }
 
 // Overloaded assignment operator
 // const return avoids: ( a1 = a2 ) = a3
-// but allows a1 = a2 = a3
+// but allows a1 = a2 = a3 (which is equal to a1 = (a2 = a3) ) 
 template <class T>
 const Array<T>& Array<T>::operator=( const Array &right )
 {
@@ -62,7 +64,7 @@ const Array<T>& Array<T>::operator=( const Array &right )
       if ( size != right.size ) {
          delete [] ptr;         // reclaim space
          size = right.size;     // resize this object
-         ptr = new T[ size ]; // create space for array copy
+         ptr = new T[ size ];   // create space for array copy
          assert( ptr != 0 );    // terminate if not allocated
       }
 
@@ -89,7 +91,7 @@ bool Array<T>::operator==( const Array &right ) const
 }
 
 // Overloaded subscript operator for non-const Arrays
-// reference return creates an lvalue
+// Reference return creates an l-value
 template <class T>
 T &Array<T>::operator[]( int subscript )
 {
@@ -100,7 +102,7 @@ T &Array<T>::operator[]( int subscript )
 }
 
 // Overloaded subscript operator for const Arrays
-// const reference return creates an rvalue
+// const reference return creates an r-value
 template <class T>
 const T &Array<T>::operator[]( int subscript ) const
 {
@@ -110,13 +112,43 @@ const T &Array<T>::operator[]( int subscript ) const
    return ptr[ subscript ]; // const reference return
 }
 
-// Return the number of Array objects instantiated
-// static functions cannot be const 
+// Return the number of Array objects instantiated.
+// Static functions cannot be const 
+// [Q] Why ?
 template <class T>
 int Array<T>::getArrayCount() { 
 	return arrayCount; 
 }
 
+// Overloaded input operator for class Array;
+// inputs values for entire array.
+template <class T>
+istream& operator>>(istream& input, Array<T>& a)
+{
+    for (int i = 0; i < a.size; i++)
+        input >> a.ptr[i];
+
+    return input;   // enables cin >> x >> y;
+}
+
+// Overloaded output operator for class Array 
+template <class T>
+ostream& operator<<(ostream& output, const Array<T>& a)
+{
+    int i;
+
+    for (i = 0; i < a.size; i++) {
+        output << setw(6) << a.ptr[i];
+
+        if ((i + 1) % 10 == 0) // 10 numbers per row of output
+            output << endl;
+    }
+
+    if (i % 10 != 0)
+        output << endl;
+
+    return output;   // enables cout << x << y;
+}
 
 /**************************************************************************
  * (C) Copyright 2000 by Deitel & Associates, Inc. and Prentice Hall.     *
