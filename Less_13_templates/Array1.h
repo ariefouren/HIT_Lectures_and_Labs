@@ -27,8 +27,8 @@ public:
    bool operator!=( const Array &right ) const  
       { return ! ( *this == right ); }
    
-   T &operator[]( int );    // subscript operator - returns lval
-   const T &operator[]( int ) const; // subscript operator - returns rval
+   T &operator[]( int );    // subscript operator - returns l-value
+   const T &operator[]( int ) const; // subscript operator - returns r-value
  
    static int getArrayCount();          // Return count of 
                                         // arrays instantiated.
