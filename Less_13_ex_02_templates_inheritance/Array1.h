@@ -15,7 +15,7 @@ class Array {
    template <class T>
         friend istream &operator>>( istream &, Array<T> & );
 public:
-   Array( int = 10 );                   // default constructor
+   Array( int = 5 );                   // default constructor
    Array( const Array & );              // copy constructor
    virtual ~Array();                            // destructor
    const Array &operator=( const Array & ); // assign arrays
@@ -32,7 +32,7 @@ public:
  
    static int getArrayCount();          // Return count of 
                                         // arrays instantiated.
-private:
+protected:
    int size; // size of the array
    T *ptr; // pointer to first element of array
    static int arrayCount;  // # of Arrays instantiated

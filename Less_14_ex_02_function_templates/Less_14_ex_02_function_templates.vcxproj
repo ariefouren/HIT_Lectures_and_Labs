@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a76d0497-d0a1-4ef9-89ae-2ef9e41b4ee3}</ProjectGuid>
-    <RootNamespace>Less13templates</RootNamespace>
+    <ProjectGuid>{87f7a2c2-6081-4126-9be4-d2f365842deb}</ProjectGuid>
+    <RootNamespace>Less14ex02functiontemplates</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Less_13_ex_01_templates</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,13 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Array1.cpp" />
-    <ClCompile Include="Array2.cpp" />
-    <ClCompile Include="ArrayTest.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Array1.h" />
-    <ClInclude Include="Array2.h" />
+    <ClCompile Include="FunctionsTemplates2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
