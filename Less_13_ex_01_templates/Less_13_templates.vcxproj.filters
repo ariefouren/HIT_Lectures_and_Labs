@@ -15,29 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TEMP-F1.CPP">
+    <ClCompile Include="Array1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TEMP-F2.CPP">
+    <ClCompile Include="ArrayTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TEMP-F3.CPP">
+    <ClCompile Include="Array2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TEMP-F4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Templ-c1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Templ-c2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Temp-type-err1.CPP">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Temp-type-err2.CPP">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Array1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Array2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
