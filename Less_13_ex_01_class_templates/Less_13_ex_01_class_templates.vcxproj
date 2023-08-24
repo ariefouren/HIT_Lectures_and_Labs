@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a76d0497-d0a1-4ef9-89ae-2ef9e41b4ee3}</ProjectGuid>
-    <RootNamespace>Less13templates</RootNamespace>
+    <ProjectGuid>{8768bec8-d6bc-4091-adcc-45edd8ef2bd4}</ProjectGuid>
+    <RootNamespace>Less13ex01classtemplates</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Less_13_ex_01_templates</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,8 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Array1.cpp" />
-    <ClCompile Include="Array2.cpp" />
     <ClCompile Include="ArrayTest.cpp" />
   </ItemGroup>
   <ItemGroup>

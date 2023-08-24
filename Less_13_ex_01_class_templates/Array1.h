@@ -1,38 +1,71 @@
-// 
-// Member function definitions for class Array<char>
+// Fig. 8.4: array1.h
+// Simple class Array (for integers)
+#pragma  once
+
 #include <iostream>
 #include <iomanip>
-
 #include <cstdlib>
-#include <cctype>   // for isalpha() and tolower()
 #include <cassert>
-#include "Array1.h"
-#include "Array2.h"
 
 using namespace std;
 
-// Initialize static data member at file scope
-int Array<char>::arrayCount = 0;   // no objects yet
+template <class T>
+// Alternative form:
+// template <typename T>
+class Array {
+   template <class T>
+        friend ostream &operator<<( ostream &, const Array<T> & );
+   template <class T>
+        friend istream &operator>>( istream &, Array<T> & );
+public:
+   Array( int = 10 );                   // default constructor
+   Array( const Array & );              // copy constructor
+   virtual ~Array();                            // destructor
+   const Array &operator=( const Array & ); // assign arrays
+   
+   bool operator==( const Array & ) const;  // compare equal
 
-// Default constructor for class Array<char> (default size 100)
-Array<char>::Array(int arraySize)
+   int getSize() const;                 // return size
+   // Determine if two arrays are not equal (uses operator==).
+   bool operator!=( const Array &right ) const  
+      { return ! ( *this == right ); }
+   
+   T &operator[]( int );    // subscript operator - returns l-value
+   const T &operator[]( int ) const; // subscript operator - returns r-value
+ 
+   static int getArrayCount();          // Return count of 
+                                        // arrays instantiated.
+private:
+   int size; // size of the array
+   T *ptr; // pointer to first element of array
+   static int arrayCount;  // # of Arrays instantiated
+};
+
+// Initialize static data member at file scope
+template <class T>
+int Array<T>::arrayCount = 0;   // no objects yet
+
+// Default constructor for class Array (default size 10)
+template <class T>
+Array<T>::Array(int arraySize)
 {
     size = (arraySize > 0 ? arraySize : 10);
-    ptr = new char[size]; // create space for array
+    ptr = new T[size]; // create space for array
     assert(ptr != 0);    // terminate if memory not allocated
     ++arrayCount;          // count one more object
 
     for (int i = 0; i < size; i++)
-        ptr[i] = '#';          // initialize array
+        ptr[i] = 0;          // initialize array
 }
 
-// Copy constructor for class Array<char>
+// Copy constructor for class Array
 // must receive a reference to prevent infinite recursion 
 // [Q] why the problem arises and why passing the parameter by 
 //     reference solves it ?
-Array<char>::Array(const Array& initArr) : size(initArr.size)
+template <class T>
+Array<T>::Array(const Array& initArr) : size(initArr.size)
 {
-    ptr = new char[size];     // create space for array
+    ptr = new T[size];     // create space for array
     assert(ptr != 0);      // terminate if memory not allocated
     ++arrayCount;            // count one more object
 
@@ -40,20 +73,23 @@ Array<char>::Array(const Array& initArr) : size(initArr.size)
         ptr[i] = initArr.ptr[i];  // copy initArr into object
 }
 
-// Destructor for class Array<char>
-Array<char>::~Array()
+// Destructor for class Array
+template <class T>
+Array<T>::~Array()
 {
     delete[] ptr;            // reclaim space for array
     --arrayCount;             // one fewer objects
 }
 
 // Get the size of the array
-int Array<char>::getSize() const { return size; }
+template <class T>
+int Array<T>::getSize() const { return size; }
 
 // Overloaded assignment operator
 // const return avoids: ( a1 = a2 ) = a3
 // but allows a1 = a2 = a3 (which is equal to a1 = (a2 = a3) ) 
-const Array<char>& Array<char>::operator=(const Array& right)
+template <class T>
+const Array<T>& Array<T>::operator=(const Array& right)
 {
     if (&right != this) {  // check for self-assignment
 
@@ -62,7 +98,7 @@ const Array<char>& Array<char>::operator=(const Array& right)
         if (size != right.size) {
             delete[] ptr;         // reclaim space
             size = right.size;     // resize this object
-            ptr = new char[size];   // create space for array copy
+            ptr = new T[size];   // create space for array copy
             assert(ptr != 0);    // terminate if not allocated
         }
 
@@ -73,24 +109,25 @@ const Array<char>& Array<char>::operator=(const Array& right)
     return *this;   // enables a1 = a2 = a3;
 }
 
-// Determine if two char arrays are equal
-// Ignore case of letters
-bool Array<char>::operator==(const Array& right) const
+// Determine if two arrays are equal and
+// return true, otherwise return false.
+template <class T>
+bool Array<T>::operator==(const Array& right) const
 {
     if (size != right.size)
         return false;    // arrays of different sizes
 
-    // compare the characters, ignore the case 
     for (int i = 0; i < size; i++)
-         if (tolower(ptr[i]) != tolower(right.ptr[i]))
+        if (ptr[i] != right.ptr[i])
             return false; // arrays are not equal
-    
+
     return true;        // arrays are equal
 }
 
 // Overloaded subscript operator for non-const Arrays
 // Reference return creates an l-value
-char& Array<char>::operator[](int subscript)
+template <class T>
+T& Array<T>::operator[](int subscript)
 {
     // check for subscript out of range error
     assert(0 <= subscript && subscript < size);
@@ -100,7 +137,8 @@ char& Array<char>::operator[](int subscript)
 
 // Overloaded subscript operator for const Arrays
 // const reference return creates an r-value
-const char& Array<char>::operator[](int subscript) const
+template <class T>
+const T& Array<T>::operator[](int subscript) const
 {
     // check for subscript out of range error
     assert(0 <= subscript && subscript < size);
@@ -111,13 +149,15 @@ const char& Array<char>::operator[](int subscript) const
 // Return the number of Array objects instantiated.
 // Static functions cannot be const 
 // [Q] Why ?
-int Array<char>::getArrayCount() {
+template <class T>
+int Array<T>::getArrayCount() {
     return arrayCount;
 }
 
 // Overloaded input operator for class Array;
 // inputs values for entire array.
-istream& operator>>(istream& input, Array<char>& a)
+template <class T>
+istream& operator>>(istream& input, Array<T>& a)
 {
     for (int i = 0; i < a.size; i++)
         input >> a.ptr[i];
@@ -126,18 +166,24 @@ istream& operator>>(istream& input, Array<char>& a)
 }
 
 // Overloaded output operator for class Array 
-ostream& operator<<(ostream& output, const Array<char>& a)
+template <class T>
+ostream& operator<<(ostream& output, const Array<T>& a)
 {
-    for (int i = 0; i < a.size; i++) {
-        output << setw(2) << a.ptr[i];
+    int i;
 
-        if ((i + 1) % 40 == 0) // 40 characters per row of output
+    for (i = 0; i < a.size; i++) {
+        output << setw(6) << a.ptr[i];
+
+        if ((i + 1) % 10 == 0) // 10 numbers per row of output
             output << endl;
     }
-    output << endl;
+
+    if (i % 10 != 0)
+        output << endl;
 
     return output;   // enables cout << x << y;
 }
+
 
 /**************************************************************************
  * (C) Copyright 2000 by Deitel & Associates, Inc. and Prentice Hall.     *
