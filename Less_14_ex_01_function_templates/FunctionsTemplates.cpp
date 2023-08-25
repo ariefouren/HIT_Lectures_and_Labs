@@ -1,32 +1,28 @@
 #include <iostream>
-
 using namespace std;
 
-template<class T, class U>
-T sum(T x, U y)
+template<class T>
+T quotient(T numerator, T denominator)
 {
-	return x + y;
-}
-
-int sum(int a, double y) 
-{ 
-	cout << "sum(int, double) is called \n";
-	return a + y; 
+	return numerator/ denominator;
 }
 
 int main()
 {
-	int n = 10;
-	double y = 3.14;
+	int a = 4, b = 3;
+	double x = 4.1, y = 3.2;
 
-	cout << "sum<double, int>(y, n) = " << sum<double, int>(y, n) << endl;
-	cout << "sum(y, n) = " << sum(y, n) << endl;
-
-	cout << "sum<int, double>(n, y) = " << sum<int, double>(n, y) << endl;
-	// if template specialization and a function 
-	// equally match, the function is preferred
-	cout << "sum(n, y) = " << sum(n, y) << endl;
-
-
-
+	cout << "quotient(" << a <<", " << b<< ") = " 
+		<< quotient(a, b) << endl; // int quotient<int>(int, int) 
+	cout << "quotient<int>(" << a << ", " << b << ") = "
+		<< quotient<int>(a, b) << endl; // int quotient<int>(int, int)
+	cout << "quotient<double>(" << a << ", " << b << ") = "
+		<< quotient<double>(a, b) << endl << endl; // double quotient<double>(double, double)
+	
+	cout << "quotient(" << x <<", " << y << ") = "
+		<< quotient(x, y) << endl; // double largest<double>(double, double)
+	cout << "quotient<double>(" << x << ", " << y << ") = "
+		<< quotient<double>(x, y) << endl; // double largest<double>(double, double)
+	cout << "quotient<int>(" << x << ", " << y << ") = "
+		<< quotient<int>(x, y) << endl; // double largest<int>(double, double)
 }
