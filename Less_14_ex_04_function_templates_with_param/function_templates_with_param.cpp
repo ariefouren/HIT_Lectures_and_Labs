@@ -29,5 +29,7 @@ int main()
 	cout << "Log<int, 10>(x) = " << Log<int, 10>(x) << endl;
 	// cout << "Log<double, base10>(x) = " << Log<double, base10>(x) << endl;
 	cout << "Log<double, 10>(x) = " << Log<double, 10>(x) << endl;
+	// cout << "Log<double, 10>(x) = " << Log<double>(x, base10) << endl;
+
 }
 
