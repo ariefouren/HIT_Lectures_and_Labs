@@ -21,6 +21,9 @@
     <ClInclude Include="CharArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ArrayWithDefaultValue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArrayTest.cpp">

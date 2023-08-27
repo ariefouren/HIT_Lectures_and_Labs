@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Array1.h" />
+    <ClInclude Include="ArrayWithDefaultValue.h" />
     <ClInclude Include="CharArray.h" />
   </ItemGroup>
   <ItemGroup>

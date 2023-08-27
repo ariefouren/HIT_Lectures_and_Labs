@@ -3,6 +3,8 @@
 #include <iostream>
 #include "Array1.h"
 #include "CharArray.h"
+#include "ArrayWithDefaultValue.h"
+
 using namespace std;
 
 int main()
@@ -35,6 +37,7 @@ int main()
 	cout << "charArrIgnoreCase1 == charArrIgnoreCase2 returns " 
 		<< (charArrIgnoreCase1 == charArrIgnoreCase2);
 
+	ArrayWithDefaultValue<int> arr;
    return 0;
 }
 

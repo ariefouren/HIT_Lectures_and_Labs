@@ -13,6 +13,8 @@
 
 using namespace std;
 
+
+
 class CharArrayIgnoreCase : public Array<char>
 {
 public:
