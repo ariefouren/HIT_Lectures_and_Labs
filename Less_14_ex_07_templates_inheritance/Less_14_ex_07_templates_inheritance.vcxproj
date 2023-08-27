@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a50bc5b0-522b-4c29-b028-312735e0d05c}</ProjectGuid>
-    <RootNamespace>Less13ex02templatesinheritance</RootNamespace>
+    <ProjectGuid>{e40604f9-a26d-4e94-badc-84d677c5240c}</ProjectGuid>
+    <RootNamespace>Less14ex07templatesinheritance</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,13 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Array1.cpp" />
-    <ClCompile Include="ArrayTest.cpp" />
-    <ClCompile Include="CharArray.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Array1.h" />
     <ClInclude Include="CharArray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ArrayTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

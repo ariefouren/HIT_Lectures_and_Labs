@@ -89,6 +89,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_14_ex_05_class_templat
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_14_ex_06_function_with_template_param", "Less_14_ex_06_function_with_template_param\Less_14_ex_06_function_with_template_param.vcxproj", "{2CB8DF9B-D926-487D-B8DC-CF8F8322811E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Less_14_ex_07_templates_inheritance", "Less_14_ex_07_templates_inheritance\Less_14_ex_07_templates_inheritance.vcxproj", "{E40604F9-A26D-4E94-BADC-84D677C5240C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -549,6 +551,16 @@ Global
 		{2CB8DF9B-D926-487D-B8DC-CF8F8322811E}.Release|x64.Build.0 = Release|x64
 		{2CB8DF9B-D926-487D-B8DC-CF8F8322811E}.Release|x86.ActiveCfg = Release|Win32
 		{2CB8DF9B-D926-487D-B8DC-CF8F8322811E}.Release|x86.Build.0 = Release|Win32
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Debug|x64.ActiveCfg = Debug|x64
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Debug|x64.Build.0 = Debug|x64
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Debug|x86.ActiveCfg = Debug|Win32
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Debug|x86.Build.0 = Debug|Win32
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Release|Any CPU.ActiveCfg = Release|Win32
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Release|x64.ActiveCfg = Release|x64
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Release|x64.Build.0 = Release|x64
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Release|x86.ActiveCfg = Release|Win32
+		{E40604F9-A26D-4E94-BADC-84D677C5240C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

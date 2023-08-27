@@ -3,27 +3,41 @@
 #include <iostream>
 #include "Array1.h"
 #include "CharArray.h"
-
-
 using namespace std;
 
 int main()
-{
-    // Testing CharArray
-   CharArray charArray1, charArray2;
-   // cout << "Enter 5 characters for charArray1: ";
-   // cin >> charArray1;
+{ 
+	cout << "Testing Array<char> : \n";
+	Array<char> charArr1(5), charArr2(5);
+	cout << "enter 5 characters for charArr1: ";
+	cin >> charArr1;
 
-   //cout << "Enter 5 characters for charArray2: ";
-   //cin >> charArray2;
+	cout << "enter 5 characters for charArr2: ";
+	cin >> charArr2;
 
-   //cout << "charArray1 = " << charArray1 << endl;
-   //cout << "charArray2 = " << charArray2 << endl;
+	cout << "charArr1 = " << charArr1 << endl;
+	cout << "charArr2 = " << charArr2 << endl;
 
-   //cout << "charArr1 == charArr2 returns " << (charArray1 == charArray2);
+	cout << "charArr1 == charArr2 returns " 
+		<< (charArr1 == charArr2);
+
+	cout << "\n\nTesting CharArrayIgnoreCase: \n";
+	CharArrayIgnoreCase charArrIgnoreCase1(5), charArrIgnoreCase2(5);
+	cout << "enter 5 characters for charArr1: ";
+	cin >> charArrIgnoreCase1;
+
+	cout << "enter 5 characters for charArr2: ";
+	cin >> charArrIgnoreCase2;
+
+	cout << "charArrIgnoreCase1 = " << charArrIgnoreCase1 << endl;
+	cout << "charArrIgnoreCase2 = " << charArrIgnoreCase2 << endl;
+
+	cout << "charArrIgnoreCase1 == charArrIgnoreCase2 returns " 
+		<< (charArrIgnoreCase1 == charArrIgnoreCase2);
 
    return 0;
 }
+
 
 
 
