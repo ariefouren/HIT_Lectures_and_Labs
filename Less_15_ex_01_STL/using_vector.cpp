@@ -11,8 +11,8 @@ int main() {
     cout << "Size of numbers: " << numbers.size() << endl;
     cout << "Capacity of numbers: " << numbers.capacity() << endl;
 
-    // Step 2: Add 5 integers 1..5 to vector "numbers" using push_back()
-    for (int i = 1; i <= 5; ++i) {
+    // Step 2: Add 10 integers 0..9 to vector "numbers" using push_back()
+    for (int i = 0; i < 10; ++i) {
         numbers.push_back(i);
     }
 
@@ -22,38 +22,29 @@ int main() {
 
     // Print elements using iterator after adding
     cout << "Elements in numbers after adding:";
-    for (vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
+    for (vector<int>::iterator it = numbers.begin(); 
+        it != numbers.end(); ++it) {
         cout << " " << *it;
     }
     cout << endl;
 
-    // Step 3: Compute and print the product of elements in "numbers" using a for loop and vector<int>::iterator
-    int product1 = 1;
-    for (vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
-        product1 *= *it;
+    // Step 3: Compute and print the sum of elements in "numbers" 
+    // using a for loop and vector<int>::iterator
+    int sum1 = 0;
+    for (vector<int>::iterator it = numbers.begin(); 
+        it != numbers.end(); ++it) {
+        sum1 += *it;
     }
-    cout << "Product of elements using iterator: " << product1 << endl;
+    cout << "Sum of elements using iterator: " << sum1 << endl;
 
-    // Print elements using iterator in step 3
-    cout << "Elements in numbers in step 3:";
-    for (vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
-        cout << " " << *it;
-    }
-    cout << endl;
-
-    // Step 4: Compute and print the product of elements in "numbers" using a for loop and vector<int>::reverse_iterator
-    int product2 = 1;
-    for (vector<int>::reverse_iterator rit = numbers.rbegin(); rit != numbers.rend(); ++rit) {
-        product2 *= *rit;
-    }
-    cout << "Product of elements using reverse iterator: " << product2 << endl;
-
-    // Print elements using iterator in step 4
-    cout << "Elements in numbers in step 4:";
-    for (vector<int>::iterator it = numbers.begin(); it != numbers.end(); ++it) {
-        cout << " " << *it;
+    // Step 4: Print the elements in "numbers" using a while loop 
+    // and vector<int>::reverse_iterator
+    cout << "Elements in numbers in reverse order, using reverse_iterator : ";
+    vector<int>::reverse_iterator rit = numbers.rbegin(); 
+    while(rit != numbers.rend()) {
+        cout << *rit <<" ";
+        ++rit;
     }
     cout << endl;
-
     return 0;
 }
